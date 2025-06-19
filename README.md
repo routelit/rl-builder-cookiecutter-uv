@@ -1,4 +1,5 @@
 <p align="center">
+  <img width="300" src="https://wsrv.nl/?url=res.cloudinary.com/rolangom/image/upload/v1747976918/routelit/routelit_c2otsv.png&w=300&h=300">
   <img width="600" src="https://raw.githubusercontent.com/fpgmaas/cookiecutter-uv/main/docs/static/cookiecutter.svg">
 </p style = "margin-bottom: 2rem;">
 
@@ -9,7 +10,7 @@
 [![Docs](https://img.shields.io/badge/docs-gh--pages-blue)](https://fpgmaas.github.io/cookiecutter-uv/)
 [![License](https://img.shields.io/github/license/fpgmaas/cookiecutter-uv)](https://img.shields.io/github/license/fpgmaas/cookiecutter-uv)
 
-This is a modern Cookiecutter template that can be used to initiate a Python project with all the necessary tools for development, testing, and deployment. It supports the following features:
+This is a modern Cookiecutter template that can be used to initiate a Routelit Component Builder with all the necessary tools for development, testing, and deployment. It supports the following features:
 
 - [uv](https://docs.astral.sh/uv/) for dependency management
 - Supports both [src and flat layout](https://packaging.python.org/en/latest/discussions/src-layout-vs-flat-layout/).
@@ -37,14 +38,14 @@ On your local machine, navigate to the directory in which you want to
 create a project directory, and run the following command:
 
 ```bash
-uvx cookiecutter https://github.com/fpgmaas/cookiecutter-uv.git
+uvx cookiecutter https://github.com/routelit/rl-builder-cookiecutter-uv.git
 ```
 
 or if you don't have `uv` installed yet:
 
 ```bash
 pip install cookiecutter
-cookiecutter https://github.com/fpgmaas/cookiecutter-uv.git
+cookiecutter https://github.com/routelit/rl-builder-cookiecutter-uv.git
 ```
 
 Follow the prompts to configure your project. Once completed, a new directory containing your project will be created. Then navigate into your newly created project directory and follow the instructions in the `README.md` to complete the setup of your project.
