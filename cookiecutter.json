@@ -4,11 +4,8 @@
   "author_github_handle": "fpgmaas",
   "project_name": "example-project",
   "project_slug": "{{cookiecutter.project_name|lower|replace('-', '_')}}",
+  "project_pascal_case": "{{cookiecutter.project_name|capitalize|replace('-', '')}}",
   "project_description": "This is a template repository for Python projects that use uv for their dependency management.",
-  "layout": [
-    "flat",
-    "src"
-  ],
   "include_github_actions": [
     "y",
     "n"
