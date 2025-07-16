@@ -60,6 +60,23 @@ To finalize the set-up for publishing to PyPI, see [here](https://fpgmaas.github
 For activating the automatic documentation with MkDocs, see [here](https://fpgmaas.github.io/cookiecutter-uv/features/mkdocs/#enabling-the-documentation-on-github).
 To enable the code coverage reports, see [here](https://fpgmaas.github.io/cookiecutter-uv/features/codecov/).
 
+## Development
+
+To develop first run the frontend:
+
+```bash
+cd src/frontend
+pnpm install
+pnpm run dev
+```
+
+To develop in the backend, in another terminal run:
+
+```bash
+uv sync
+uv run src/example/example.py
+```
+
 ## Releasing a new version
 
 {% if cookiecutter.publish_to_pypi == "y" -%}

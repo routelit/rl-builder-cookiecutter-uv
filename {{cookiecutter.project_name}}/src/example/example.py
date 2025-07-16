@@ -9,15 +9,17 @@ app = Flask(__name__)
 routelit = RouteLit(BuilderClass=RLBuilder)
 routelit_adapter = RouteLitFlaskAdapter(
     routelit,
-    ### TO USE LOCAL VITE DEV SERVER, UNCOMMENT THE FOLLOWING LINES
-    # run_mode="dev_components",
-    # local_components_server="http://localhost:5173"
+    ### TO RUN with LOCAL VITE DEV SERVER,
+    # first go to src/frontend and run `pnpm install` and then `pnpm run dev`
+    run_mode="dev_components",
+    local_components_server="http://localhost:5173"
 ).configure(app)
 
 
-def view(ui: RLBuilder) -> None:  # type: ignore[no-any-unimported]
-    ui.hello("RouteLit")
-    ui.hello_world()
+def view(rl: RLBuilder) -> None:  # type: ignore[no-any-unimported]
+    rl.text("Hello World")
+    rl.hello("RouteLit")
+    rl.hello_world()
 
 
 @app.route("/", methods=["GET", "POST"])
