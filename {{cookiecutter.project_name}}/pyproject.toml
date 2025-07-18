@@ -18,7 +18,7 @@ classifiers = [
     "Topic :: Software Development :: Libraries :: Python Modules",
 ]
 dependencies = [
-    "routelit>=0.4.3",
+    "routelit>=0.4.5",
 ]
 
 [project.urls]
@@ -38,7 +38,7 @@ dev = [
     {% if cookiecutter.mkdocs == 'y' %}"mkdocs>=1.4.2",
     "mkdocs-material>=8.5.10",
     "mkdocstrings[python]>=0.26.1",{% endif %}
-    "routelit-flask>=0.4.1",
+    "routelit-flask>=0.4.3",
     "flask>=2.0.0",
 ]
 
