@@ -7,9 +7,9 @@ repos:
       - id: check-toml
       - id: check-yaml
       - id: check-json
-        exclude: ^.devcontainer/devcontainer.json
+        exclude: ^(.devcontainer/devcontainer.json|src/frontend/tsconfig.*.json)$
       - id: pretty-format-json
-        exclude: ^.devcontainer/devcontainer.json
+        exclude: ^(.devcontainer/devcontainer.json|src/frontend/tsconfig.*.json)$
         args: [--autofix, --no-sort-keys]
       - id: end-of-file-fixer
       - id: trailing-whitespace
