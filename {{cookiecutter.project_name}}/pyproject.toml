@@ -7,16 +7,16 @@ authors = [
 ]
 readme = "README.md"
 keywords = ['python']
-requires-python = ">=3.9,<4.0"
+requires-python = ">=3.10,<4.0"
 classifiers = [
     "Intended Audience :: Developers",
     "Programming Language :: Python",
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
     "Topic :: Software Development :: Libraries :: Python Modules",
 ]
 dependencies = ["routelit>=0.6.1"]
@@ -28,17 +28,21 @@ Documentation = "https://{{cookiecutter.author_github_handle}}.github.io/{{cooki
 
 [dependency-groups]
 dev = [
-    "pytest>=7.2.0",
-    "pre-commit>=2.20.0",
-    "tox-uv>=1.11.3",
-    {% if cookiecutter.deptry == 'y' %}"deptry>=0.23.0",{% endif %}
-    "mypy>=0.991",
-    {% if cookiecutter.codecov == 'y' %}"pytest-cov>=4.0.0",{% endif %}
-    "ruff>=0.11.5",
-    {% if cookiecutter.mkdocs == 'y' %}"mkdocs>=1.4.2",
-    "mkdocs-material>=8.5.10",
-    "mkdocstrings[python]>=0.26.1",{% endif %}
-    "routelit-flask>=0.4.3",
+    "pytest>=9.0.2",
+    "pre-commit>=4.5.1",
+    "tox-uv>=1.29.0",
+    {% if cookiecutter.deptry == 'y' %}"deptry>=0.24.0",{% endif %}
+    {% if cookiecutter.type_checker == "mypy" -%}
+        "mypy>=1.19.1",
+    {%- elif cookiecutter.type_checker == "ty" -%}
+        "ty>=0.0.14",
+    {%- endif %}
+    {% if cookiecutter.codecov == 'y' %}"pytest-cov>=7.0.0",{% endif %}
+    "ruff>=0.14.14",
+    {% if cookiecutter.mkdocs == 'y' %}"mkdocs>=1.6.1",
+    "mkdocs-material>=9.7.1",
+    "mkdocstrings[python]>=1.0.2",{% endif %}
+    "routelit-flask>=0.5.1",
     "flask>=2.0.0",
 ]
 
@@ -47,9 +51,13 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/{{cookiecutter.project_slug}}"]
 
+
+{% if cookiecutter.type_checker == "mypy" -%}
+packages = ["src/{{cookiecutter.project_slug}}"]
 [tool.mypy]
+
+{%- else -%}
 files = ["src"]
 disallow_untyped_defs = true
 disallow_any_unimported = true
@@ -58,12 +66,17 @@ check_untyped_defs = true
 warn_return_any = true
 warn_unused_ignores = true
 show_error_codes = true
+[tool.ty.environment]
 
+{%- endif %}
+
+python = "./.venv"
+python-version = "3.10"
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 
 [tool.ruff]
-target-version = "py39"
+target-version = "py310"
 line-length = 120
 fix = true
 exclude = ["src/frontend"]
@@ -115,9 +128,8 @@ ignore = [
 [tool.ruff.format]
 
 
-{% if cookiecutter.codecov == "y"-%}
-preview = true
-[tool.coverage.report]
+{% if cookiecutter.codecov == "y" -%}
+[tool.coverage.report]preview = true
 skip_empty = true
 
 [tool.coverage.run]
