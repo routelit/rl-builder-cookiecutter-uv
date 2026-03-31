@@ -6,6 +6,7 @@ site_author: {{cookiecutter.author}}
 edit_uri: edit/main/docs/
 repo_name: {{cookiecutter.author_github_handle}}/{{cookiecutter.project_name}}
 copyright: Maintained by <a href="https://{{cookiecutter.author_github_handle}}.com">{{cookiecutter.author_github_handle}}</a>.
+docs_dir: docs
 
 nav:
   - Home: index.md
